@@ -400,11 +400,11 @@ use Illuminate\Support\Facades\Blade;
 
 public function boot() 
 {
-	// ..
+    // ..
     
-    	Blade::if('role', function ($rolename) {
-    		return auth()->check() && auth()->user()->is($rolename);
-	});	
+    Blade::if('role', function ($rolename) {
+        return auth()->check() && auth()->user()->is($rolename);
+    });	
 }
 ```
 
@@ -412,9 +412,9 @@ You can now use the directive:
 
 ``` php
 @role('admin')
-	The user is an admin!
+    The user is an admin!
 @else
-	The user is not an admin!
+    The user is not an admin!
 @endrole
 ```
 
@@ -425,11 +425,11 @@ use Illuminate\Support\Facades\Blade;
 
 public function boot() 
 {
-	// ..
+    // ..
     
-    	Blade::if('admin', function () {
-    		return auth()->check() && auth()->user()->is('admin');
-	});	
+    Blade::if('admin', function () {
+        return auth()->check() && auth()->user()->is('admin');
+    });	
 }
 ```
 
@@ -437,9 +437,9 @@ You can now use the directive:
 
 ``` php
 @admin
-	The user is an admin!
+    The user is an admin!
 @else
-	The user is not an admin!
+    The user is not an admin!
 @endadmin
 ```
 
@@ -447,9 +447,9 @@ Or if you don't want any custom directive, you can do:
 
 ``` php
 @if(auth()->user()->is('admin'))
-	The user is an admin!
+    The user is an admin!
 @else
-	The user is not an admin!
+    The user is not an admin!
 @endif
 ```
 
