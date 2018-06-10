@@ -402,8 +402,8 @@ public function boot()
 {
 	// ..
     
-    Blade::if('role', function ($rolename) {
-    	return auth()->check() && auth()->user()->is($rolename);
+    	Blade::if('role', function ($rolename) {
+    		return auth()->check() && auth()->user()->is($rolename);
 	});	
 }
 ```
@@ -427,8 +427,8 @@ public function boot()
 {
 	// ..
     
-    Blade::if('admin', function () {
-    	return auth()->check() && auth()->user()->is('admin');
+    	Blade::if('admin', function () {
+    		return auth()->check() && auth()->user()->is('admin');
 	});	
 }
 ```
