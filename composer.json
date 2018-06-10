@@ -1,0 +1,27 @@
+{
+    "name": "soumen-dey/laravel-role",
+    "description": "A lightweight Access Control package for Laravel 5.6 and above.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Soumen Dey",
+            "email": "soumendeyemail@gmail.com"
+        }
+    ],
+    "homepage": "https://github.com/soumen-dey/laravel-role",
+    "keywords": ["Laravel", "laravel-role"],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Soumen\\Role\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Soumen\\Role\\RoleServiceProvider"
+            ]
+        }
+    }
+}
