@@ -86,7 +86,7 @@ trait HasRoles
 	 **/
 	public function assignRole(...$roles)
 	{
-	    return $this->assignRole($roles);
+	    return $this->assignRoles($roles);
 	}
 
 	/**
