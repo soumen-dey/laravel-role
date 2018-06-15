@@ -55,7 +55,7 @@ The configurations are:
 'associated_model' => App\Admin::class,
 ```
 
-**Tip:** If you assign a null value to the pivot table name, this package will automatically generate it for you.
+**Tip:** If you assign a null value to the pivot table name, this package will automatically generate the pivot table name for you.
 
 ``` php
 'pivot_name' => null, // this package will automatically generate the table name
