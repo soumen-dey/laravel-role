@@ -3,6 +3,7 @@
 namespace Soumen\Role\Traits;
 
 use Soumen\Role\Models\Role;
+use Soumen\Role\Helpers\Migration;
 use Illuminate\Support\Collection;
 use Illuminate\Database\Eloquent\Builder;
 
@@ -15,7 +16,7 @@ trait HasRoles
 	public function roles()
 	{
 	    return $this->belongsToMany(Role::class, 
-	    	$this->generatePivotTableName(config('role.pivot_table')));
+	    	Migration::generatePivotTableName(config('role.pivot_table')));
 	}
 
 	/**
@@ -273,22 +274,4 @@ trait HasRoles
 	{
 	    return $this->roles->contains('name', $role);
 	}
-
-	/**
-     * Generates table name for the pivot table.
-     *
-     * @return String
-     * @author Soumen Dey
-     **/
-    public function generatePivotTableName($pivotTableName)
-    {
-        if (!$pivotTableName) {
-            $names[] = config('role.table_name');
-            $names[] = config('role.associated_model_table_name');
-            sort($names);
-            $pivotTableName = str_singular($names[0]).'_'.str_singular($names[1]);    
-        }
-
-        return $pivotTableName;
-    }
 }

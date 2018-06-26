@@ -2,6 +2,7 @@
 
 namespace Soumen\Role\Models;
 
+use Soumen\Role\Helpers\Migration;
 use Illuminate\Database\Eloquent\Model;
 use Soumen\Role\Exceptions\RoleNotFound;
 use Soumen\Role\Exceptions\RoleAlreadyExists;
@@ -25,7 +26,7 @@ class Role extends Model
     public function users()
     {
         return $this->belongsToMany(config('role.associated_model'), 
-                $this->generatePivotTableName(config('role.pivot_table')));
+                Migration::generatePivotTableName(config('role.pivot_table')));
     }
 
     /**
@@ -166,22 +167,4 @@ class Role extends Model
 
         return ($role) ? $role : false;
    	}
-
-    /**
-     * Generates table name for the pivot table.
-     *
-     * @return String
-     * @author Soumen Dey
-     **/
-    public function generatePivotTableName($pivotTableName)
-    {
-        if (!$pivotTableName) {
-            $names[] = config('role.table_name');
-            $names[] = config('role.associated_model_table_name');
-            sort($names);
-            $pivotTableName = str_singular($names[0]).'_'.str_singular($names[1]);    
-        }
-
-        return $pivotTableName;
-    }
 }
